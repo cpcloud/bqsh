@@ -5,23 +5,23 @@ from termcolor import cprint
 
 class MetaCommandLexer(sly.Lexer):
     tokens = {
-        SHOW,
-        TABLES,
-        DATASETS,
-        DESCRIBE,
-        IN,
-        DOT,
-        ID,
+        SHOW,  # noqa: F821
+        TABLES,  # noqa: F821
+        DATASETS,  # noqa: F821
+        DESCRIBE,  # noqa: F821
+        IN,  # noqa: F821
+        DOT,  # noqa: F821
+        ID,  # noqa: F821
     }
 
     ignore = ' \t'
 
     ID = r'[A-Za-z_][A-Za-z_0-9-]*'
-    ID['datasets'] = DATASETS
-    ID['describe'] = DESCRIBE
-    ID['tables'] = TABLES
-    ID['show'] = SHOW
-    ID['in'] = IN
+    ID['datasets'] = DATASETS  # noqa: F821
+    ID['describe'] = DESCRIBE  # noqa: F821
+    ID['tables'] = TABLES  # noqa: F821
+    ID['show'] = SHOW  # noqa: F821
+    ID['in'] = IN  # noqa: F821
 
     DOT = '\.'
 
@@ -32,23 +32,24 @@ class MetaCommandParser(sly.Parser):
     def __init__(self, con):
         self.con = con
 
-    @_('SHOW TABLES IN ID DOT ID')
+    @_('SHOW TABLES IN ID DOT ID')  # noqa: F821
     def stmt(self, p):
-        cprint('\n'.join(self.con.list_tables(database=f'{p.ID0}.{p.ID1}')), attrs=['bold'])
+        cprint('\n'.join(
+            self.con.list_tables(database=f'{p.ID0}.{p.ID1}')), attrs=['bold'])
 
-    @_('SHOW TABLES IN ID')
+    @_('SHOW TABLES IN ID')  # noqa: F811,F821
     def stmt(self, p):
         cprint('\n'.join(self.con.list_tables(database=p.ID)), attrs=['bold'])
 
-    @_('SHOW DATASETS')
+    @_('SHOW DATASETS')  # noqa: F811,F821
     def stmt(self, p):
         cprint('\n'.join(self.con.list_databases()), attrs=['bold'])
 
-    @_('SHOW TABLES')
+    @_('SHOW TABLES')  # noqa: F811,F821
     def stmt(self, p):
         cprint('\n'.join(self.con.list_tables()), attrs=['bold'])
 
-    @_('DESCRIBE ID DOT ID DOT ID')
+    @_('DESCRIBE ID DOT ID DOT ID')  # noqa: F811,F821
     def stmt(self, p):
         cprint(
             self.con.table(
@@ -56,11 +57,11 @@ class MetaCommandParser(sly.Parser):
             ).schema(), attrs=['bold']
         )
 
-    @_('DESCRIBE ID DOT ID')
+    @_('DESCRIBE ID DOT ID')  # noqa: F811,F821
     def stmt(self, p):
         cprint(self.con.table(p.ID1, database=p.ID0).schema(), attrs=['bold'])
 
-    @_('DESCRIBE ID')
+    @_('DESCRIBE ID')  # noqa: F811,F821
     def stmt(self, p):
         cprint(self.con.table(p.ID).schema(), attrs=['bold'])
 
