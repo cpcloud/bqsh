@@ -1,0 +1,2 @@
+include versioneer.py
+include bqsh/_version.py
