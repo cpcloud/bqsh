@@ -1,0 +1,2 @@
+ibis-framework[bigquery]
+prompt_toolkit
