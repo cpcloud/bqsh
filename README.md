@@ -10,5 +10,3 @@ Usage:
 $ bqsh
 usage: bqsh [-h] [-H HISTORY_FILE] [-C] [-m] [-v] [-c] project dataset
 ```
-
-![image](https://media.giphy.com/media/fjxtvIlpg4e7uZS5vL/giphy.gif)
