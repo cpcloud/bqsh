@@ -12,8 +12,6 @@ from prompt_toolkit.styles import style_from_pygments
 from pygments.styles.default import DefaultStyle
 from pygments.lexers.sql import PostgresLexer
 
-import ngrid.grid
-
 from bqsh.meta import meta
 
 style = style_from_pygments(DefaultStyle, {
@@ -76,7 +74,7 @@ def loop(
                 else:
                     raise
             else:
-                ngrid.grid.show_dataframe(result)
+                print(result)
 
 
 def parse_args():
