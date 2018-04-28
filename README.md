@@ -11,10 +11,4 @@ $ bqsh
 usage: bqsh [-h] [-H HISTORY_FILE] [-C] [-m] [-v] [-c] project dataset
 ```
 
-Examples:
-
-
-```sh
-$ bqsh ibis-gbq testing
-ibis-gbq.testing > select * from testing.functional_alltypes limit 5
-```
+[image](https://media.giphy.com/media/fjxtvIlpg4e7uZS5vL/giphy.gif)
