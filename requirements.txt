@@ -1,6 +1,5 @@
 google-cloud-bigquery
 ibis-framework
-ngrid
 prompt_toolkit
 pygments
 sly
